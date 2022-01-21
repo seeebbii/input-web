@@ -32,68 +32,70 @@
   <title>input_flutter</title>
   <link rel="manifest" href="manifest.json">
 
-  <script>
-    // Initialising the canvas
-var canvas = document.querySelector('canvas'),
-    ctx = canvas.getContext('2d');
-
-// Setting the width and height of the canvas
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-// Setting up the letters
-var letters = 'ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZ';
-letters = letters.split('');
-
-// Setting up the columns
-var fontSize = 10,
-    columns = canvas.width / fontSize;
-
-// Setting up the drops
-var drops = [];
-for (var i = 0; i < columns; i++) {
-  drops[i] = 1;
-}
-
-// Setting up the draw function
-function draw() {
-  ctx.fillStyle = 'rgba(0, 0, 0, .1)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  for (var i = 0; i < drops.length; i++) {
-    var text = letters[Math.floor(Math.random() * letters.length)];
-    ctx.fillStyle = '#0f0';
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-    drops[i]++;
-    if (drops[i] * fontSize > canvas.height && Math.random() > .95) {
-      drops[i] = 0;
-    }
-  }
-}
-
-// Loop the animation
-setInterval(draw, 33);
-  </script>
-
-
   <style>
-    * {margin: 0; padding: 0}
     body {background: #000;}
-    canvas {display: block;}
+    .gooey
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 120px
+  height: 80px
+  margin: -40px 0 0 -60px
+  background: #595959
+  filter: contrast(30)
+  .ball
+    position: absolute
+    width: 36px
+    height: 36px
+    filter: blur(6px)
+    margin: -18px 0 0 -18px
+    top: 50%
+    left: 50%
+    background: #000
+    border-radius: 50%
+    &.ball-1
+      transform: translateX(17px) scale(1)
+      animation: one 2.4s infinite
+    &.ball-2
+      transform: translateX(-17px) scale(0.85)
+      animation: two 2.4s infinite
+
+@keyframes one
+  50%
+    transform: translateX(-17px) scale(1)
+
+@keyframes two
+  50%
+    transform: translateX(17px) scale(0.85)
+
+//dribbble button
+.credit
+  position: fixed
+  right: 20px
+  bottom: 20px
+  transition: all .2s ease
+  img
+    width: 80px
+    height: 20px
+  &:hover
+    transform: scale(.95)
+    opacity: .8
   </style>
 
 </head>
 <body>
 
 
-  <canvas>
-
-  </canvas>
+  <div class="gooey">
+    <div class="ball ball-1"></div>
+    <div class="ball ball-2"></div>
+  </div>
 
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
-    var serviceWorkerVersion = '3410886726';
+    var serviceWorkerVersion = '2972759039';
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
