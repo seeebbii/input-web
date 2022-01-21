@@ -31,71 +31,162 @@
 
   <title>input_flutter</title>
   <link rel="manifest" href="manifest.json">
-
   <style>
-    body {background: #000;}
-    .gooey
-  position: absolute
-  top: 50%
-  left: 50%
-  width: 120px
-  height: 80px
-  margin: -40px 0 0 -60px
-  background: #595959
-  filter: contrast(30)
-  .ball
-    position: absolute
-    width: 36px
-    height: 36px
-    filter: blur(6px)
-    margin: -18px 0 0 -18px
-    top: 50%
-    left: 50%
-    background: #000
-    border-radius: 50%
-    &.ball-1
-      transform: translateX(17px) scale(1)
-      animation: one 2.4s infinite
-    &.ball-2
-      transform: translateX(-17px) scale(0.85)
-      animation: two 2.4s infinite
-
-@keyframes one
-  50%
-    transform: translateX(-17px) scale(1)
-
-@keyframes two
-  50%
-    transform: translateX(17px) scale(0.85)
-
-//dribbble button
-.credit
-  position: fixed
-  right: 20px
-  bottom: 20px
-  transition: all .2s ease
-  img
-    width: 80px
-    height: 20px
-  &:hover
-    transform: scale(.95)
-    opacity: .8
-  </style>
+  html {
+     height: 100%;
+     background-color: black;
+}
+#site {
+opacity: 0;
+-webkit-transition: all 2s ease;
+transition: all 2s ease;
+}
+#preloader {
+height: 60px;
+width: 60px;
+position: absolute;
+top: 50%;
+left: 50%;
+margin-top: -20px;
+margin-left: -20px;
+}
+#preloader:before {
+content: "";
+display: block;
+position: absolute;
+left: -1px;
+top: -1px;
+height: 100%;
+width: 100%;
+-webkit-animation: rotation 1s linear infinite;
+animation: rotation 1s linear infinite;
+border: 0px solid white;
+border-top: 1px solid transparent;
+border-radius: 100%;
+}
+#preloader > .icon {
+position: absolute;
+/*top: 50%;
+left: 50%;*/
+height: 60px;
+width: 60px;
+/*margin-top: -12.5px;
+margin-left: -5.3px;*/
+-webkit-animation: 1s ease-in-out infinite alternate;
+animation: 1s ease-in-out infinite alternate;
+}
+@media only screen and (min-width: 768px) {
+#preloader {
+height: 80px;
+width: 80px;
+margin-left: -30px;
+}
+#preloader:before {
+left: -2px;
+top: -2px;
+border-top-width: 2px;
+border-left-width: 2px;
+border-bottom-width: 2px;
+border-right-width: 2px;
+}
+#preloader > .icon {
+height: 80px;
+width: 80px;
+/*margin-top: -18.75px;
+margin-left: -7.95px;*/
+}
+}
+@media only screen and (min-width: 1200px) {
+#preloader {
+height: 100px;
+width: 100px;
+margin-top: -40px;
+margin-left: -40px;
+}
+#preloader > .icon {
+height: 100px;
+width: 100px;
+/*margin-top: -25px;
+margin-left: -10.6px;*/
+}
+}
+@-webkit-keyframes rotation {
+from {
+-webkit-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+to {
+-webkit-transform: rotate(359deg);
+transform: rotate(359deg);
+}
+}
+@keyframes rotation {
+from {
+-webkit-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+to {
+-webkit-transform: rotate(359deg);
+transform: rotate(359deg);
+}
+}
+@-webkit-keyframes wink {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+@keyframes wink {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+</style>
 
 </head>
 <body>
 
 
-  <div class="gooey">
-    <div class="ball ball-1"></div>
-    <div class="ball ball-2"></div>
+  <div id="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar"><img class="icon" src="URL OF GIF">
   </div>
 
-  <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
+<!-- This script installs service_worker.js to provide PWA functionality to
+     application. For more information, see:
+     https://developers.google.com/web/fundamentals/primers/service-workers -->
+
+  <script type="text/javascript">
+(function(){
+var preload = document.getElementById("preloader");
+var loading = 0;
+var id = setInterval(frame, 64);
+function frame(){
+if(loading == 100){
+clearInterval(id);
+//window.open('welcome.html', '_self');
+} else {
+loading = loading + 1;
+if(loading == 90){
+preload.style.opacity = "0";
+}
+}
+}
+})();
+/*(function preloader() {
+var preloader = document.getElementById("#preloader");
+preloader.style.opacity = "0";
+preloader.setAttribute("aria-busy", "false");
+document.getElementById("#site").style.opacity = "1";
+})
+window.onload = preloader;*/
+</script>
+
   <script>
-    var serviceWorkerVersion = '2972759039';
+    var serviceWorkerVersion = '1641668549';
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
