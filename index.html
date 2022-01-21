@@ -31,162 +31,145 @@
 
   <title>input_flutter</title>
   <link rel="manifest" href="manifest.json">
+
   <style>
-  html {
-     height: 100%;
-     background-color: black;
+
+    /* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
-#site {
-opacity: 0;
--webkit-transition: all 2s ease;
-transition: all 2s ease;
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+    background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+
+  background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
 }
-#preloader {
-height: 60px;
-width: 60px;
-position: absolute;
-top: 50%;
-left: 50%;
-margin-top: -20px;
-margin-left: -20px;
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
 }
-#preloader:before {
-content: "";
-display: block;
-position: absolute;
-left: -1px;
-top: -1px;
-height: 100%;
-width: 100%;
--webkit-animation: rotation 1s linear infinite;
-animation: rotation 1s linear infinite;
-border: 0px solid white;
-border-top: 1px solid transparent;
-border-radius: 100%;
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 150ms infinite linear;
+  -moz-animation: spinner 150ms infinite linear;
+  -ms-animation: spinner 150ms infinite linear;
+  -o-animation: spinner 150ms infinite linear;
+  animation: spinner 150ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
 }
-#preloader > .icon {
-position: absolute;
-/*top: 50%;
-left: 50%;*/
-height: 60px;
-width: 60px;
-/*margin-top: -12.5px;
-margin-left: -5.3px;*/
--webkit-animation: 1s ease-in-out infinite alternate;
-animation: 1s ease-in-out infinite alternate;
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
-@media only screen and (min-width: 768px) {
-#preloader {
-height: 80px;
-width: 80px;
-margin-left: -30px;
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
-#preloader:before {
-left: -2px;
-top: -2px;
-border-top-width: 2px;
-border-left-width: 2px;
-border-bottom-width: 2px;
-border-right-width: 2px;
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
-#preloader > .icon {
-height: 80px;
-width: 80px;
-/*margin-top: -18.75px;
-margin-left: -7.95px;*/
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
-}
-@media only screen and (min-width: 1200px) {
-#preloader {
-height: 100px;
-width: 100px;
-margin-top: -40px;
-margin-left: -40px;
-}
-#preloader > .icon {
-height: 100px;
-width: 100px;
-/*margin-top: -25px;
-margin-left: -10.6px;*/
-}
-}
-@-webkit-keyframes rotation {
-from {
--webkit-transform: rotate(0deg);
-transform: rotate(0deg);
-}
-to {
--webkit-transform: rotate(359deg);
-transform: rotate(359deg);
-}
-}
-@keyframes rotation {
-from {
--webkit-transform: rotate(0deg);
-transform: rotate(0deg);
-}
-to {
--webkit-transform: rotate(359deg);
-transform: rotate(359deg);
-}
-}
-@-webkit-keyframes wink {
-from {
-opacity: 0;
-}
-to {
-opacity: 1;
-}
-}
-@keyframes wink {
-from {
-opacity: 0;
-}
-to {
-opacity: 1;
-}
-}
-</style>
+
+  </style>
 
 </head>
 <body>
 
 
-  <div id="preloader" aria-busy="true" aria-label="Loading, please wait." role="progressbar"><img class="icon" src="URL OF GIF">
-  </div>
+  <div class="loading">Loading&#8230;</div>
 
 <!-- This script installs service_worker.js to provide PWA functionality to
      application. For more information, see:
      https://developers.google.com/web/fundamentals/primers/service-workers -->
 
-  <script type="text/javascript">
-(function(){
-var preload = document.getElementById("preloader");
-var loading = 0;
-var id = setInterval(frame, 64);
-function frame(){
-if(loading == 100){
-clearInterval(id);
-//window.open('welcome.html', '_self');
-} else {
-loading = loading + 1;
-if(loading == 90){
-preload.style.opacity = "0";
-}
-}
-}
-})();
-/*(function preloader() {
-var preloader = document.getElementById("#preloader");
-preloader.style.opacity = "0";
-preloader.setAttribute("aria-busy", "false");
-document.getElementById("#site").style.opacity = "1";
-})
-window.onload = preloader;*/
-</script>
-
   <script>
-    var serviceWorkerVersion = '1641668549';
+    var serviceWorkerVersion = '317022904';
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
