@@ -10479,7 +10479,7 @@ _.c=c
 _.d=d
 _.$ti=e},
 Mw:function Mw(){},
-acR(a,b){return new A.jl(a,b,null)},
+acR(a,b,c){return new A.jl(a,b,c,null)},
 ahU(a){var s=a.me(t.Np)
 if(s!=null)return s
 throw A.c(A.TY(A.b([A.uy("Scaffold.of() called with a context that does not contain a Scaffold."),A.b5("No Scaffold ancestor could be found starting from the context that was passed to Scaffold.of(). This usually happens when the context provided is from the same StatefulWidget as that whose build function actually creates the Scaffold widget being sought."),A.TE('There are several ways to avoid this problem. The simplest is to use a Builder to get a context that is "under" the Scaffold. For an example of this, please see the documentation for Scaffold.of():\n  https://api.flutter.dev/flutter/material/Scaffold/of.html'),A.TE("A more efficient solution is to split your build function into several widgets. This introduces a new context from which you can obtain the Scaffold. In this solution, you would have an outer widget that creates the Scaffold populated by instances of your new inner widgets, and then in these inner widgets you would use Scaffold.of().\nA less elegant but more expedient solution is assign a GlobalKey to the Scaffold, then use the key.currentState property to obtain the ScaffoldState rather than using the Scaffold.of() function."),a.a4y("The context used was")],t.G)))},
@@ -10567,9 +10567,11 @@ _.b=c
 _.c=null},
 a5C:function a5C(a,b){this.a=a
 this.b=b},
-jl:function jl(a,b,c){this.e=a
-this.f=b
-this.a=c},
+jl:function jl(a,b,c,d){var _=this
+_.e=a
+_.f=b
+_.fx=c
+_.a=d},
 pE:function pE(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p){var _=this
 _.d=a
 _.e=b
@@ -18539,13 +18541,14 @@ return A.aa($.A.iI(),$async$UX)
 case 2:return A.X(null,r)}})
 return A.Y($async$UX,r)},
 UY:function UY(){},
-m5:function m5(a,b,c,d,e,f){var _=this
+m5:function m5(a,b,c,d,e,f,g){var _=this
 _.r=a
 _.x=b
 _.ch=c
-_.db=d
-_.y1=e
-_.a=f},
+_.cx=d
+_.db=e
+_.y1=f
+_.a=g},
 UV:function UV(a){this.a=a},
 UU:function UU(a){this.a=a},
 US:function US(a){this.a=a},
@@ -41440,8 +41443,8 @@ YE(){var s,r=this.c
 r.toString
 s=A.Z7(r)
 if(s!=null&&s.d.length!==0)s.ie(0,B.as,B.aN)},
-gkm(){this.a.toString
-return!0},
+gkm(){var s=this.a.fx
+return s!==!1},
 aS(){var s,r=this,q=null
 r.be()
 s=r.c
@@ -41492,83 +41495,75 @@ nu(a,b,c,d,e,f,g){return this.vq(a,b,c,!1,!1,d,e,f,g)},
 vp(a,b,c,d,e,f,g,h){return this.vq(a,b,c,d,!1,e,f,g,h)},
 Da(a,b){this.a.toString},
 D9(a,b){this.a.toString},
-O(a0,a1){var s,r,q,p,o,n,m,l,k,j,i,h=this,g=null,f="_floatingActionButtonMoveController",e="_geometryNotifier",d={},c=a1.R(t.w).f,b=A.aG(a1),a=a1.R(t.I)
-a.toString
-s=a.f
-h.z=c.z
-a=h.Q
-if(!a.gK(a)){r=A.Fd(a1,t.X)
-if(r==null||r.gjL())g.ga6F()
-else{q=h.cx
+O(a,a0){var s,r,q,p,o,n,m,l,k,j,i=this,h=null,g="_floatingActionButtonMoveController",f="_geometryNotifier",e={},d=a0.R(t.w).f,c=A.aG(a0),b=a0.R(t.I)
+b.toString
+s=b.f
+i.z=d.z
+b=i.Q
+if(!b.gK(b)){r=A.Fd(a0,t.X)
+if(r==null||r.gjL())h.ga6F()
+else{q=i.cx
 if(q!=null)q.aI(0)
-h.cx=null}}p=A.b([],t.s9)
-q=h.a
+i.cx=null}}p=A.b([],t.s9)
+q=i.a
 o=q.f
 q=q.e
-h.gkm()
-h.U1(p,new A.Jf(o,!1,!1,g),B.eI,!0,!1,!1,!1,q!=null)
-if(h.k3)h.nu(p,A.ahb(!0,h.k4,!1,g),B.eL,!0,!0,!0,!0)
-q=h.a.e
-if(q!=null){q=h.f=A.apK(a1,q.k2)+c.f.b
-o=h.a.e
+i.U1(p,new A.Jf(o,!1,!1,h),B.eI,i.gkm(),!1,!1,!1,q!=null)
+if(i.k3)i.nu(p,A.ahb(!0,i.k4,!1,h),B.eL,!0,!0,!0,!0)
+q=i.a.e
+if(q!=null){q=i.f=A.apK(a0,q.k2)+d.f.b
+o=i.a.e
 o.toString
-h.nu(p,new A.f5(new A.aA(0,1/0,0,q),new A.uE(1,q,q,q,g,o,g),g),B.eJ,!0,!1,!1,!1)}d.a=!1
-d.b=null
-if(h.dy!=null||h.dx.length!==0){q=A.an(h.dx,!0,t.l7)
-o=h.dy
+i.nu(p,new A.f5(new A.aA(0,1/0,0,q),new A.uE(1,q,q,q,h,o,h),h),B.eJ,!0,!1,!1,!1)}e.a=!1
+e.b=null
+if(i.dy!=null||i.dx.length!==0){q=A.an(i.dx,!0,t.l7)
+o=i.dy
 if(o!=null)q.push(o.a)
-n=A.qj(B.uM,q,B.cr)
-h.gkm()
-h.nu(p,n,B.eM,!0,!1,!1,!0)}q=h.cy
+i.nu(p,A.qj(B.uM,q,B.cr),B.eM,i.gkm(),!1,!1,!0)}q=i.cy
 if(q!=null){q.a.ga2T()
-d.a=!1
-q=h.cy
-if(q==null)m=g
+e.a=!1
+q=i.cy
+if(q==null)n=h
 else{q=q.a
-m=q.gb1(q)}d.b=m
-q=h.cy
-q=q==null?g:q.a
-h.a.toString
-h.gkm()
-h.vp(p,q,B.bS,!1,!1,!1,!1,!0)}if(!a.gK(a)){a.gI(a).a.ga2T()
-d.a=!1
-q=a.gI(a).a
-d.b=q.gb1(q)
-a=a.gI(a).a
-h.a.toString
-h.gkm()
-h.vp(p,a,B.bS,!1,!1,!1,!1,!0)}d.c=!1
-if(h.db!=null){a1.R(t.iB)
-a=A.aG(a1)
-q=h.db
-l=a.aP.c
-d.c=(l==null?0:l)!==0
-a=q==null?g:q.a
-q=h.a.e
-h.gkm()
-h.vp(p,a,B.eN,!1,!0,!1,!1,q!=null)}h.a.toString
-a=A.a(h.fx,f)
-q=A.a(h.fy,"_floatingActionButtonAnimator")
-o=A.a(h.k2,e)
-k=A.a(h.k1,u.Z)
-h.a.toString
-h.nu(p,new A.yM(g,a,q,o,k,g),B.eO,!0,!0,!0,!0)
-switch(b.r.a){case 2:case 4:h.nu(p,A.uN(B.aQ,g,B.aM,!0,g,g,g,g,g,g,g,g,g,g,g,h.gYD(),g,g,g,g,g,g),B.eK,!0,!1,!1,!0)
+n=q.gb1(q)}e.b=n
+q=i.cy
+q=q==null?h:q.a
+i.a.toString
+i.vp(p,q,B.bS,!i.gkm(),!1,!1,!1,!0)}if(!b.gK(b)){b.gI(b).a.ga2T()
+e.a=!1
+q=b.gI(b).a
+e.b=q.gb1(q)
+b=b.gI(b).a
+i.a.toString
+i.vp(p,b,B.bS,!i.gkm(),!1,!1,!1,!0)}e.c=!1
+if(i.db!=null){a0.R(t.iB)
+b=A.aG(a0)
+q=i.db
+m=b.aP.c
+e.c=(m==null?0:m)!==0
+b=q==null?h:q.a
+q=i.a.e
+i.vp(p,b,B.eN,!i.gkm(),!0,!1,!1,q!=null)}i.a.toString
+b=A.a(i.fx,g)
+q=A.a(i.fy,"_floatingActionButtonAnimator")
+o=A.a(i.k2,f)
+l=A.a(i.k1,u.Z)
+i.a.toString
+i.nu(p,new A.yM(h,b,q,o,l,h),B.eO,!0,!0,!0,!0)
+switch(c.r.a){case 2:case 4:i.nu(p,A.uN(B.aQ,h,B.aM,!0,h,h,h,h,h,h,h,h,h,h,h,i.gYD(),h,h,h,h,h,h),B.eK,!0,!1,!1,!0)
 break
-case 0:case 1:case 3:case 5:break}a=h.x
-if(A.r(a).j("cY.T").a(a.y)){h.D9(p,s)
-h.Da(p,s)}else{h.Da(p,s)
-h.D9(p,s)}h.gkm()
-a=c.e.d
-j=c.f.rH(a)
-h.gkm()
-a=a!==0?0:g
-i=c.r.rH(a)
-if(j.d<=0)h.a.toString
-h.a.toString
-A.a(h.k2,e)
-h.a.toString
-return new A.Nd(!1,new A.x7(A.F2(B.a8,g,A.k1(A.a(h.fx,f),new A.a_P(d,h,!1,j,i,s,p),g),B.A,b.fy,0,g,g,g,g,B.cX),g),g)}}
+case 0:case 1:case 3:case 5:break}b=i.x
+if(A.r(b).j("cY.T").a(b.y)){i.D9(p,s)
+i.Da(p,s)}else{i.Da(p,s)
+i.D9(p,s)}b=i.gkm()?d.e.d:0
+k=d.f.rH(b)
+b=i.gkm()&&d.e.d!==0?0:h
+j=d.r.rH(b)
+if(k.d<=0)i.a.toString
+i.a.toString
+A.a(i.k2,f)
+i.a.toString
+return new A.Nd(!1,new A.x7(A.F2(B.a8,h,A.k1(A.a(i.fx,g),new A.a_P(e,i,!1,k,j,s,p),h),B.A,c.fy,0,h,h,h,h,B.cX),h),h)}}
 A.a_Q.prototype={
 $1(a){var s=this.b
 if((s.a.a&30)===0)s.cM(0,this.c)},
@@ -62295,7 +62290,7 @@ p=q.db
 o=p
 n=$.abv().a
 if(n==null)n=m
-n=new A.ms(r,a.y2,m,B.DE,q.r,q.x,m,m,s,m,m,m,m,q.ga4o(),"",m,o,p,B.up,m,n,m,m,m,B.me,!1,!1,!1,!1,!1,m,m,!1,!1,m)
+n=new A.ms(r,a.y2,m,B.DE,q.r,q.x,m,m,s,m,m,m,m,q.ga4o(),q.cx,m,o,p,B.up,m,n,m,m,m,B.me,!1,!1,!1,!1,!1,m,m,!1,!1,m)
 s=n
 return s},
 $S:364}
@@ -62560,7 +62555,8 @@ $C:"$4",
 $R:4,
 $S:370}
 A.a_s.prototype={
-$1(a){return A.acR(new A.to(B.KO,new A.Mr(null,null,1/0,56),null),B.wi)},
+$1(a){var s=null
+return A.acR(new A.to(B.KO,new A.Mr(s,s,1/0,56),s),B.wi,s)},
 $S:371}
 A.v7.prototype={
 ay(){return new A.L4(B.k)}}
@@ -62584,7 +62580,7 @@ n=A.a3p(q,q,q,A.fq(q,q,B.f1,q,q,q,q,q,q,q,q,12*$.dk.aL().gf3(),q,q,q,q,!0,q,q,q,
 o=A.ag0(q,q,B.T,q,q,q,B.fR).IE(B.S,B.ym)
 s=A.fq(q,q,A.al(B.c.aK(178.5),158,158,158),q,q,q,q,q,q,q,q,13*$.dk.aL().gf3(),q,q,q,q,!0,q,q,q,q,q,q,q,q)
 r=A.atD(q,q,q,q,q,q,q,q,q,q,q,B.Y,q,q,B.wb,q,q,q)
-return new A.m5("/main-splash-screen",A.ayh(),new A.a6m(),A.aih(B.uR,B.dF,q,B.dF,o,B.j,new A.oA(A.agm(q,q,q,q,q,q,q,q,B.j,q,B.zn,B.yd,q,new A.dj(A.afK(12),B.t),q,q,q,q)),B.yw,B.yi,"Consolas",B.Y,B.dN,new A.v6(s),B.dF,B.ye,B.dF,B.Y,new A.qy(r),n,p),!1,q)},
+return new A.m5("/main-splash-screen",A.ayh(),new A.a6m(),"<Input/>",A.aih(B.uR,B.dF,q,B.dF,o,B.j,new A.oA(A.agm(q,q,q,q,q,q,q,q,B.j,q,B.zn,B.yd,q,new A.dj(A.afK(12),B.t),q,q,q,q)),B.yw,B.yi,"Consolas",B.Y,B.dN,new A.v6(s),B.dF,B.ye,B.dF,B.Y,new A.qy(r),n,p),!1,q)},
 $S:372}
 A.a6m.prototype={
 $2(a,b){var s=null
@@ -62599,7 +62595,7 @@ s.toString
 A.ahD(s,!1,t.zw).to()
 this.be()},
 O(a,b){var s,r,q,p,o,n,m,l,k,j=null,i=$.dk.aL().gBv()
-i=A.eP(A.agJ("assets/icons/input.png",B.cH,B.cy),i*0.5,j)
+i=A.eP(A.agJ("assets/icons/favicon.png",B.cH,B.cy),i*0.5,j)
 s=A.eP(j,0.15*$.dk.aL().gf3(),j)
 r=$.dk.aL().gut()
 q=5*$.dk.aL().gf3()
@@ -62634,7 +62630,7 @@ A.wY.prototype={
 ay(){return new A.N5(B.k)}}
 A.N5.prototype={
 O(a,b){var s=null,r=A.agM(7,7)
-return A.acR(s,A.qj(B.cw,A.b([A.hF(s,A.afH(A.ag3(new A.a82(),t.rV),r),s,B.l1,s,s,s,s)],t.F),B.cr))}}
+return A.acR(s,A.qj(B.cw,A.b([A.hF(s,A.afH(A.ag3(new A.a82(),t.rV),r),s,B.l1,s,s,s,s)],t.F),B.cr),!1)}}
 A.a82.prototype={
 $3(a,b,c){var s=b.b,r=b.ga9a()
 return new A.mD(s,B.E6,r,new A.a24(B.AH,A.aK([null,0],t.LO,t.S)),null)},
@@ -62670,7 +62666,7 @@ $S:376}
 A.a6I.prototype={
 $0(){var s,r,q,p=null,o="C:\\User\\Root>input --init",n=A.agM(7,7),m=this.a
 if(m.d){s=$.dk.aL().gBv()
-s=A.eP(A.agJ("assets/icons/input.png",B.cH,B.cy),s*0.5,p)}else s=B.cq
+s=A.eP(A.agJ("assets/icons/favicon.png",B.cH,B.cy),s*0.5,p)}else s=B.cq
 r=A.eP(p,0.15*$.dk.aL().gf3(),p)
 if(m.e){m=A.aG(this.b).S.z
 if(m==null)m=p
@@ -62678,7 +62674,7 @@ else m=m.a3N(A.ea()===B.aE?15:18)
 q=new A.eq(o)
 q=B.f.aK(3e5*(q.gn(q)+8))
 m=A.ua(new A.td(A.b([new A.y1(B.aN,B.dA,o,B.bo,m,new A.az(q),new A.eq(o))],t.u6),!1,p),p,p,B.bp,!0,B.Ip,p,p,B.ai)}else m=B.cq
-return A.acR(p,A.hF(p,A.afH(A.tI(A.ac_(A.b([s,r,m],t.F),B.eh,B.ei),p,p),n),p,B.l1,p,p,p,p))},
+return A.acR(p,A.hF(p,A.afH(A.tI(A.ac_(A.b([s,r,m],t.F),B.eh,B.ei),p,p),n),p,B.l1,p,p,p,p),p)},
 $S:377}
 A.P4.prototype={
 l(a){var s=this,r=s.cB$
@@ -65460,8 +65456,8 @@ B.uS=new A.lv(0,"resumed")
 B.uT=new A.lv(1,"inactive")
 B.uU=new A.lv(2,"paused")
 B.uV=new A.lv(3,"detached")
+B.uW=new A.lx("assets/icons/favicon.png",null,null)
 B.bT=new A.lx("assets/images/chat_bg.gif",null,null)
-B.uW=new A.lx("assets/icons/input.png",null,null)
 B.uX=new A.tp(null)
 B.bE=A.b(s([]),t.s)
 B.l=new A.qv(1,"downstream")
